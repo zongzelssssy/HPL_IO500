@@ -1,0 +1,120 @@
+[run]
+procs           = 2
+version         = io500-sc22_v2
+config-hash     = 7ADB8B32
+result-dir      = ./results/2023.03.13-20.29.12
+mode            = standard
+; START 2023-03-13 20:29:13
+
+
+[ior-easy-write]
+t_start         = 2023-03-13 20:29:13
+exe             = ./ior --dataPacketType=timestamp -C -Q 1 -g -G -1419041416 -k -e -o ./datafiles/2023.03.13-20.29.12/ior-easy/ior_file_easy -O stoneWallingStatusFile=./results/2023.03.13-20.29.12/ior-easy.stonewall -t 2m -b 9920000m -F -w -D 300 -O stoneWallingWearOut=1 -a POSIX -O saveRankPerformanceDetailsCSV=./results/2023.03.13-20.29.12/ior-easy-write.csv
+; ERROR INVALID Runtime of phase (0.000011) is below stonewall time. This shouldn't happen!
+; ERROR INVALID Runtime is smaller than expected minimum runtime
+score           = 0.000000
+t_delta         = 0.0000
+t_end           = 2023-03-13 20:29:13
+
+[mdtest-easy-write]
+t_start         = 2023-03-13 20:29:13
+exe             = ./mdtest --dataPacketType=timestamp -n 1000000 -u -L -F -P -G -532863622 -N 1 -d ./datafiles/2023.03.13-20.29.12/mdtest-easy -x ./results/2023.03.13-20.29.12/mdtest-easy.stonewall -C -Y -W 300 --saveRankPerformanceDetails=./results/2023.03.13-20.29.12/mdtest-easy-write.csv -a POSIX
+; ERROR INVALID Runtime of phase (0.000012) is below stonewall time. This shouldn't happen!
+; ERROR INVALID Runtime is smaller than expected minimum runtime
+score           = 0.000000
+t_delta         = 0.0000
+t_end           = 2023-03-13 20:29:13
+
+[timestamp]
+t_start         = 2023-03-13 20:29:13
+t_delta         = 0.0000
+t_end           = 2023-03-13 20:29:13
+
+[ior-hard-write]
+t_start         = 2023-03-13 20:29:13
+exe             = ./ior --dataPacketType=timestamp -C -Q 1 -g -G=-1419030728 -k -e -o ./datafiles/2023.03.13-20.29.12/ior-hard/file -O stoneWallingStatusFile=./results/2023.03.13-20.29.12/ior-hard.stonewall -t 47008 -b 47008 -s 100000 -w -D 300 -a POSIX -O saveRankPerformanceDetailsCSV=./results/2023.03.13-20.29.12/ior-hard-write.csv -O stoneWallingWearOut=1
+; ERROR INVALID Write phase needed 5.307974s instead of stonewall 300s. Stonewall was hit at 3.2s
+throughput-stonewall = 2.77
+; ERROR INVALID Runtime of phase (5.308386) is below stonewall time. This shouldn't happen!
+; ERROR INVALID Runtime is smaller than expected minimum runtime
+score           = 1.649579
+t_delta         = 5.3084
+t_end           = 2023-03-13 20:29:18
+
+[mdtest-hard-write]
+t_start         = 2023-03-13 20:29:18
+exe             = ./mdtest --dataPacketType=timestamp -n 1000000 -t -w 3901 -e 3901 -P -G=-532852934 -N 1 -F -d ./datafiles/2023.03.13-20.29.12/mdtest-hard -x ./results/2023.03.13-20.29.12/mdtest-hard.stonewall -C -Y -W 300 --saveRankPerformanceDetails=./results/2023.03.13-20.29.12/mdtest-hard-write.csv -a POSIX
+; ERROR INVALID Runtime of phase (0.000011) is below stonewall time. This shouldn't happen!
+; ERROR INVALID Runtime is smaller than expected minimum runtime
+score           = 0.000000
+t_delta         = 0.0000
+t_end           = 2023-03-13 20:29:18
+
+[find]
+t_start         = 2023-03-13 20:29:18
+; ERROR INVALID Resulting score shouldn't be 0.0
+score           = 0.000000
+t_delta         = 0.0000
+t_end           = 2023-03-13 20:29:18
+
+[ior-easy-read]
+t_start         = 2023-03-13 20:29:18
+exe             = ./ior --dataPacketType=timestamp -C -Q 1 -g -G -1419041416 -k -e -o ./datafiles/2023.03.13-20.29.12/ior-easy/ior_file_easy -O stoneWallingStatusFile=./results/2023.03.13-20.29.12/ior-easy.stonewall -t 2m -b 9920000m -F -r -R -a POSIX -O saveRankPerformanceDetailsCSV=./results/2023.03.13-20.29.12/ior-easy-read.csv
+; ERROR INVALID Resulting score shouldn't be 0.0
+score           = 0.000000
+t_delta         = 0.0000
+t_end           = 2023-03-13 20:29:18
+
+[mdtest-easy-stat]
+t_start         = 2023-03-13 20:29:18
+exe             = ./mdtest --dataPacketType=timestamp -n 1000000 -u -L -F -P -G -532863622 -N 1 -d ./datafiles/2023.03.13-20.29.12/mdtest-easy -x ./results/2023.03.13-20.29.12/mdtest-easy.stonewall -T --saveRankPerformanceDetails=./results/2023.03.13-20.29.12/mdtest-easy-stat.csv -a POSIX
+; ERROR INVALID Resulting score shouldn't be 0.0
+score           = 0.000000
+t_delta         = 0.0000
+t_end           = 2023-03-13 20:29:18
+
+[ior-hard-read]
+t_start         = 2023-03-13 20:29:18
+exe             = ./ior --dataPacketType=timestamp -C -Q 1 -g -G=-1419030728 -k -e -o ./datafiles/2023.03.13-20.29.12/ior-hard/file -O stoneWallingStatusFile=./results/2023.03.13-20.29.12/ior-hard.stonewall -t 47008 -b 47008 -s 100000 -r -R -a POSIX -O saveRankPerformanceDetailsCSV=./results/2023.03.13-20.29.12/ior-hard-read.csv
+score           = 13.069711
+t_delta         = 0.6702
+t_end           = 2023-03-13 20:29:19
+
+[mdtest-hard-stat]
+t_start         = 2023-03-13 20:29:19
+exe             = ./mdtest --dataPacketType=timestamp -n 1000000 -t -w 3901 -e 3901 -P -G=-532852934 -N 1 -F -d ./datafiles/2023.03.13-20.29.12/mdtest-hard -x ./results/2023.03.13-20.29.12/mdtest-hard.stonewall -T --saveRankPerformanceDetails=./results/2023.03.13-20.29.12/mdtest-hard-stat.csv -a POSIX
+; ERROR INVALID Resulting score shouldn't be 0.0
+score           = 0.000000
+t_delta         = 0.0000
+t_end           = 2023-03-13 20:29:19
+
+[mdtest-easy-delete]
+t_start         = 2023-03-13 20:29:19
+exe             = ./mdtest --dataPacketType=timestamp -n 1000000 -u -L -F -P -G -532863622 -N 1 -d ./datafiles/2023.03.13-20.29.12/mdtest-easy -x ./results/2023.03.13-20.29.12/mdtest-easy.stonewall -r --saveRankPerformanceDetails=./results/2023.03.13-20.29.12/mdtest-easy-delete.csv -a POSIX
+; ERROR INVALID Resulting score shouldn't be 0.0
+score           = 0.000000
+t_delta         = 0.0000
+t_end           = 2023-03-13 20:29:19
+
+[mdtest-hard-read]
+t_start         = 2023-03-13 20:29:19
+exe             = ./mdtest --dataPacketType=timestamp -n 1000000 -t -w 3901 -e 3901 -P -G=-532852934 -N 1 -F -d ./datafiles/2023.03.13-20.29.12/mdtest-hard -x ./results/2023.03.13-20.29.12/mdtest-hard.stonewall -E -X --saveRankPerformanceDetails=./results/2023.03.13-20.29.12/mdtest-hard-read.csv -a POSIX
+; ERROR INVALID Resulting score shouldn't be 0.0
+score           = 0.000000
+t_delta         = 0.0000
+t_end           = 2023-03-13 20:29:19
+
+[mdtest-hard-delete]
+t_start         = 2023-03-13 20:29:19
+exe             = ./mdtest --dataPacketType=timestamp -n 1000000 -t -w 3901 -e 3901 -P -G=-532852934 -N 1 -F -d ./datafiles/2023.03.13-20.29.12/mdtest-hard -x ./results/2023.03.13-20.29.12/mdtest-hard.stonewall -r --saveRankPerformanceDetails=./results/2023.03.13-20.29.12/mdtest-hard-delete.csv -a POSIX
+; ERROR INVALID Resulting score shouldn't be 0.0
+score           = 0.000000
+t_delta         = 0.0000
+t_end           = 2023-03-13 20:29:19
+
+[SCORE]
+MD              = 0.000000
+BW              = 4.643223
+SCORE           = 0.000000 [INVALID]
+hash            = FE825498
+; END 2023-03-13 20:29:19
